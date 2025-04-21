@@ -1,0 +1,16 @@
+{
+  "object1": { 
+    "attr1": "aaaa",
+    "attr2": "bbbb"
+    },
+  "objectlist1": [
+    {
+      "key1": "cccc",
+      "key2": 20
+    },
+    {
+      "key1": "eeee",
+      "key2": 30
+    }
+  ]
+}

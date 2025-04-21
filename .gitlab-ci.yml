@@ -1,0 +1,13 @@
+image: ruby:3.2
+
+before_script:
+  gem install asciidoctor-pdf asciidoctor-pdf-lists rouge
+
+build_pdf:
+  script:
+    mkdir -p build
+    asciidoctor-pdf -r asciidoctor-pdf -r asciidoctor-lists -r asciidoctor-diagram -r asciidoctor-mathematical doc/arbeit.adoc -o build/arbeit.pdf
+  artifacts:
+    paths:
+      build/arbeit.pdf
+

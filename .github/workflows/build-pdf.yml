@@ -1,0 +1,37 @@
+name: Build PDF
+
+on:
+  push:
+    paths:
+      - '**.adoc'
+      - 'my-theme.yml'
+      - 'bilder/**'
+      - '.github/workflows/**'
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+
+      - name: Install dependencies
+        run: |
+          gem install asciidoctor-pdf asciidoctor-lists rouge
+
+      - name: Build PDF
+        run: |
+          mkdir -p build
+          asciidoctor-pdf -r asciidoctor-pdf -r asciidoctor-lists -r asciidoctor-diagram -r asciidoctor-mathematical doc/arbeit.adoc -o build/arbeit.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: arbeit-pdf
+          path: build/arbeit.pdf

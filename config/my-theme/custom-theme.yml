@@ -1,0 +1,59 @@
+extends:
+  - base
+  # - default-with-fallback-font
+title-page:
+  align: left
+  background-image: image:sunsetbackground.jpg[fit=fill]
+  logo:
+    image: image:coverlogo.png[position=top left,scaledwidth=25%,opts=align-to-page]
+    top: 0px
+page:
+  margin: [0.75in, 1in, 0.75in, 1in]
+  # layout: portrait
+  # size: letter
+base:
+  line-height-length: 20
+  # font-family: Times-Roman
+heading:
+  font-color: #FF8000
+  font-size: 12
+  # font-style: bold
+  line-height: 1.2
+  # margin-bottom: 10
+link:
+  font-color: #009900
+image:
+  align: center
+caption:
+  align: center
+  font-color: #FF0000
+  font-size: 10
+table:
+  head:
+    background-color: #F0F0F0
+#   caption:
+#     end: bottom
+# code:
+#   caption:
+#     end: bottom
+role:
+  removed:
+    text-decoration: line-through
+header:
+  height: 0.75in
+  line-height: 1
+  recto:
+    right:
+      content: '{document-title}'
+  verso:
+    left:
+      content: '{document-title}'
+footer:
+  height: 0.75in
+  line-height: 1
+  recto:
+    right:
+      content: '{chapter-title} | *{page-number}*'
+  verso:
+    left:
+      content: '*{page-number}* | {chapter-title}'
