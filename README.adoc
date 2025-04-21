@@ -1,0 +1,48 @@
+# asciidoc2pdf-thesisworks
+Use textbased asciidoc for creation of thesis-document PDF (doc-as-code).
+
+The example uses a custom theme `my-theme` and has a modularized setup: config/attributes and thre content-parts are separate files included in main `thesis.adoc`. A PDF is buildt using docker (customized image), without needing additional installation of e.g. ruby on the computer.
+
+The three content-parts show the following examples:
+
+- asciidoc syntax examples
+- structure for thesis (transfer work)
+- structure for pratical work (IPA, according to "Dokumentvorgabe und Kriterien BiVo 2021")
+
+## Editors
+- vscode extension: https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode 
+- jetbrains plugin: https://plugins.jetbrains.com/plugin/7391-asciidoc
+- asciidocFX (oss, javabased:mac/win/lnx): https://asciidocfx.com
+
+## Build a PDF
+Using docker, create image with `docker build -t asciidoctor-pdf-lists ./config/Dockerfile`
+
+Then run container with
+[source,docker]
+----
+docker run --rm \
+      -v $(pwd):/documents \
+      asciidoctor-pdf-lists \
+      -r asciidoctor-pdf \
+      -r asciidoctor-lists \
+      -r asciidoctor-diagram \
+      -r asciidoctor-mathematical \
+      doc/thesis.adoc -o build/thesis.pdf
+----
+
+## Links
+- https://asciidoc.org
+- Guide: https://asciidoctor.org/docs/asciidoc-writers-guide/
+- Documentation: https://docs.asciidoctor.org/asciidoc/latest/
+- Quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+- https://docs.asciidoctor.org/asciidoc/latest/attributes/document-attributes-ref/#document-metadata-attributes
+- https://docs.asciidoctor.org/pdf-converter/latest/theme/running-content/
+- rouge languages for source-formatting: https://github.com/rouge-ruby/rouge/blob/master/docs/Languages.md
+- Asciidoctor PDF: https://docs.asciidoctor.org/pdf-converter/latest/
+- Asciidoctor PDF examples: https://github.com/asciidoctor/asciidoctor-pdf/tree/main/examples
+- Asciidoctor PDF themes: https://github.com/asciidoctor/asciidoctor-pdf/tree/main/data/themes
+
+## TODO
+- add content in *.adoc
+- test building pdf
+- add example for slides using reveal.js

@@ -6,8 +6,8 @@ before_script:
 build_pdf:
   script:
     mkdir -p build
-    asciidoctor-pdf -r asciidoctor-pdf -r asciidoctor-lists -r asciidoctor-diagram -r asciidoctor-mathematical doc/arbeit.adoc -o build/arbeit.pdf
+    asciidoctor-pdf -r asciidoctor-pdf -r asciidoctor-lists -r asciidoctor-diagram -r asciidoctor-mathematical doc/thesis.adoc -o build/thesis.pdf
   artifacts:
     paths:
-      build/arbeit.pdf
+      build/thesis.pdf
 

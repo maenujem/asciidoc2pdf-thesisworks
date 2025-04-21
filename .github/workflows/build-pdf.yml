@@ -28,10 +28,10 @@ jobs:
       - name: Build PDF
         run: |
           mkdir -p build
-          asciidoctor-pdf -r asciidoctor-pdf -r asciidoctor-lists -r asciidoctor-diagram -r asciidoctor-mathematical doc/arbeit.adoc -o build/arbeit.pdf
+          asciidoctor-pdf -r asciidoctor-pdf -r asciidoctor-lists -r asciidoctor-diagram -r asciidoctor-mathematical doc/thesis.adoc -o build/thesis.pdf
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: arbeit-pdf
-          path: build/arbeit.pdf
+          name: thesis-pdf
+          path: build/thesis.pdf
