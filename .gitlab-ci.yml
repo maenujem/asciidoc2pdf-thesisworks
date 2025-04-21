@@ -1,7 +1,7 @@
 image: ruby:3.2
 
 before_script:
-  gem install asciidoctor-pdf asciidoctor-pdf-lists rouge
+  gem install asciidoctor-pdf asciidoctor-diagram asciidoctor-mathematical asciidoctor-pdf-lists rouge
 
 build_pdf:
   script:

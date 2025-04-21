@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          gem install asciidoctor-pdf asciidoctor-lists rouge
+          gem install asciidoctor-pdf asciidoctor-diagram asciidoctor-mathematical asciidoctor-lists rouge
 
       - name: Build PDF
         run: |
