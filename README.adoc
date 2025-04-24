@@ -7,7 +7,7 @@ The three content-parts show the following examples:
 
 - asciidoc syntax examples
 - structure for thesis (transfer work)
-- structure for pratical work (IPA, according to "Dokumentvorgabe und Kriterien BiVo 2021")
+- structure for pratical work (IPA, according to "Dokumentenvorgabe 2025, Kt Bern" and "Kriterienkatalog, BiVo 2021")
 
 ## Editors
 - vscode extension: https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode 
@@ -27,7 +27,7 @@ docker run --rm \
       -r asciidoctor-lists \
       -r asciidoctor-diagram \
       -r asciidoctor-mathematical \
-      doc/thesis.adoc -o build/thesis.pdf
+      doc/thesis.adoc -o build/thesis.pdf -v
 ----
 
 ## Links
@@ -35,7 +35,7 @@ docker run --rm \
 - Guide: https://asciidoctor.org/docs/asciidoc-writers-guide/
 - Documentation: https://docs.asciidoctor.org/asciidoc/latest/
 - Quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
-- https://docs.asciidoctor.org/asciidoc/latest/attributes/document-attributes-ref/#document-metadata-attributes
+- Attributes reference: https://docs.asciidoctor.org/asciidoc/latest/attributes/document-attributes-ref
 - https://docs.asciidoctor.org/pdf-converter/latest/theme/running-content/
 - rouge languages for source-formatting: https://github.com/rouge-ruby/rouge/blob/master/docs/Languages.md
 - Asciidoctor PDF: https://docs.asciidoctor.org/pdf-converter/latest/
@@ -44,5 +44,6 @@ docker run --rm \
 
 ## TODO
 - add content in *.adoc
-- test building pdf
+- test building pdf local
+- test building pdf pipeline (gitlab, github)
 - add example for slides using reveal.js

@@ -2,39 +2,23 @@ include::../config/my-config.adoc[]
 
 == Examples
 
-syntax/principles (attributes, macros, ...)\
+=== General syntax principles
 
 :attribute-name: attribute content
-attribute defined in head of document: `:attribute-name: attribute content` can be used to insert its content with {attribute-name}
+attribute defined in head of document: `:attribute-name: attribute content` can be used to insert its content with `\{attribute-name\}` like {attribute-name} . There are https://docs.asciidoctor.org/asciidoc/latest/attributes/document-attributes-ref[predefined attributes]
 
-macro: `macroname:[]`
 
-// [%optionname]
+macro for applying a functionality to the value in brackets: there are block-macros that need to be on a separate line `macroname::[]` and inline-macros `macroname:[]`
 
-// [xy]
 
-// [.xy]
+an option for configuring something `[%optionname]`
 
-....
-xxx
-....
 
-----
-yyyy
-----
+a rule for formatting something `[.rulename]`
 
 === Textstructuring and -formatting
-a paragraph can continue over multiple
-lines and pagebreaks will not be respected, only an empty line will create a 
- 
-new paragraph starting here.
 
-
- if a paragraph starts with a blank character indent, then
- it will be formatted as monospace, keeping the breaks and          <- whitespaces
-
-
-// title in toc only
+// title in toc only, not in document
 [%notitle]
 ==== Deckblatt
 
@@ -43,7 +27,7 @@ new paragraph starting here.
 // text with fixed linebreaks
 *{doctitle}* +
 Autor: {author} +
-Autors: {authors} +
+Autoren: {authors} +
 Fachhochschule Beispielstadt +
 Fachbereich XY +
 {empty} +
@@ -54,19 +38,54 @@ Version: {revnumber} vom {revdate} / {docdatetime} +
 
 
 
-// title not in toc
+// title not in toc, only in document (without numbering)
 [discrete]
 ==== Some empty chapter with explicit page break
 
 <<<
 
-text can be formatted as *bold* or _italic_ or `monospaced` or ~subscript~ or ^superscript^ or #hilighted# or using https://docs.asciidoctor.org/asciidoc/latest/text/text-span-built-in-roles[built-in roles] for [.underline]#underlined text# or [.line-through]#strikehrough text# or a custom role [.important]#for special text#
+a paragraph can continue over multiple
+lines and linebreaks will not be respected, 
+only an empty line will create a 
+ 
+new paragraph starting here.
 
-also special-characters can be used like ☑ 𐄂 ↑ ↓ ↔ « »
 
-or explanation of keyboard-keystrokes kbd:[Ctrl+X] or menu-entries menu:View[Zoom > Size] to klick for certain actions
+ if a paragraph starts with a blank character indent, then
+ it will be formatted as monospace, 
+ keeping the breaks and          <- whitespaces
 
-or formulas/stem (see https://asciimath.org): stem:[sqrt(4)=2alpha] or matrices stem:[[[a,b\],[c,lambda\]\]((n),(k))] or sum stem:[lim_(n->oo) sum_(i=1)^n i^3=((n(n+1))/2)^2] or integrals and differentials stem:[int_0^1 f(x) dx -> f'(x) = dy/dx] or logic stem:[forall x exists y sub abs(x) => A wedge (B vee C)] or chemistry stem:[H_2O + CO_2 > COOH + OH^+]
+similar to a literal block
+
+....
+error: 1954 Forbidden search
+absolutely fatal: operation lost in the dodecahedron of doom
+
+Would you like to try again? y/n
+....
+
+.some sidebar
+****
+some special info to note
+****
+
+text can be formatted as *bold* or _italic_ or `monospaced` or ~subscript~ or ^superscript^ or #hilighted# or using https://docs.asciidoctor.org/asciidoc/latest/text/text-span-built-in-roles[built-in roles] resp. https://docs.asciidoctor.org/pdf-converter/latest/roles/[built-in roles for pdf] for [.underline]#underlined text# or [.line-through]#strikehrough text# or a custom role [.important]#for special text# .
+
+also special-characters can be used like ☑ &#x2713; 𐄂 &#x292B; ↑ &#x2191; ↓ &#x2193; ↔ &#x2194; « &#xab; » &#xbb;
+
+or explanation of keyboard-keystrokes kbd:[Ctrl+X] or menu-entries menu:View[Zoom > Size] or buttons btn:[Save] to klick for certain actions
+
+or formulas/stem (see https://asciimath.org): stem:[sqrt(4)=2alpha + abs(x)] 
+
+or matrices stem:[\[\[a,b\],\[c,lambda\]\]((n),(k))] 
+
+or sum stem:[lim_(n->oo) sum_(i=1)^n i^3=((n(n+1))/2)^2] 
+
+or integrals and differentials stem:[int_0^1 f(x) dx -> f'(x) = dy/dx] 
+
+or logic stem:[forall x exists y sub x => A wedge (B vee C)] 
+
+or chemistry stem:[H_2O + CO_2 > COOH + OH^+]
 
 
 // lists
@@ -82,6 +101,7 @@ numbered list:
 
 . Lorem ipsum dolor sit amet, 
 .. consectetur adipiscing elit, 
+... labore et dolore magna aliqua. 
 .. sed do eiusmod tempor incididunt ut 
 . labore et dolore magna aliqua. 
 .. Ut enim ad minim veniam
@@ -124,7 +144,7 @@ NOTE: please note that ...
 
 IMPORTANT: this is important ...
 
-WARNING: you have neen warned!
+WARNING: you have been warned!
 
 CAUTION: stop!
 
@@ -135,6 +155,8 @@ CAUTION: stop!
 Lorem ipsum +
 in a block
 ====
+
+and a https://fontawesome.com[font awesome icon] for pdf icon:far-file-pdf[] and folder icon:far-folder-open[] or a icon:far-question-circle[] question
 
 
 // links and references
@@ -183,7 +205,7 @@ public class Stack {
 ----
 
 .HTML code
-[source,html]
+[source,html,highlight=4]
 ----
 <html>
 <p><span id="replaceMe">Sample content</span> replaced by Javascript</p>
@@ -219,19 +241,18 @@ xzy
 </a>
 ----
 
-.Ruby code, with explanation
-[source,ruby]
+.Ruby code, with explanation and no pagebreak
+[source%unbreakable,ruby]
 ----
-require 'sinatra' <1>
+require 'sinatra' // <1>
 
-get '/hi' do <2> <3>
+get '/hi' do // <2> <3>
   "Hello World!"
 end
 ----
 <1> Library import
 <2> URL mapping
 <3> Response block
-
 
 
 // add images
@@ -244,7 +265,7 @@ image::curve-diagram.png[Example a,50%,float="right"]
 But size can be defined relative to document-width or absolute and alignment can be right or centered with floating text. _Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur._
 
 .Example SVG image b with fixed size and alignment left
-image::porphyrin-svg.svg[Example b (Wikipedia),200px, float="left"]
+image::porphyrin-svg.svg[Example b from Wikipedia,300,float="left"]
 
 _Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur._
 
@@ -252,7 +273,7 @@ _Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
 image::simple-ui-jpg.jpg[]
 
 
-or specific pages from a PDF:
+or specific pages 5,2,3 from a PDF:
 
 image::document-pdf.pdf[pages=5;2..3]
 
@@ -281,27 +302,29 @@ include::mediafiles/code-js.js[]
 === Tables
 
 .Table with one-line header and custom column-widths and some formatting
-[cols="5%,20%,,,"]
+[cols=",4,,,"]
 |===
 |Header 1 |Header 2 |Header 3 |Header 4 |Header 5
 
-|Column 1, row 1
-|Column 2, row 1
-|Column 3, row 1
-|Column 4, row 1
-|Column 5, row 1
+|Col 1, row 1
+|Col 2, row 1
+|Col 3, row 1
+|Col 4, row 1
+|Col 5, row 1
 
-|Column 1, row 2
-a|Column 2, row 2
+|Col 1, row 2
+a|Col 2, row 2
 
- including adoc things like lists
+ including adoc things like monospace blocks
+ 
+and lists
 
 * a
 * b
 
-|Column 3, row 2
-|Column 4, row 2
-|Column 5, row 2
+|Col 3, row 2
+|Col 4, row 2
+|Col 5, row 2
 |===
 
 
@@ -414,17 +437,17 @@ Shape <|.. Square
 [plantuml]
 ----
 @startuml
-actor "MA Fachbereich" as MA_FB
+actor "Mitarbeiter" as MA_FB
 node Browser
 node Frontend {
-  file "Document" as DOC
+  file "Dokument" as DOC
 }
-usecase CMS
+usecase Datenbank
 
 MA_FB         -do->  Browser:       ""nutzt Demo-Applikation""
 Browser       -ri->  Frontend:      ""ruft Frontend auf""
 
-CMS           -up->  Frontend:      ""CMS-Daten + Konfiguration""
+Datenbank           -up->  Frontend:      ""Daten + Konfiguration""
 @enduml
 ----
 
@@ -520,6 +543,8 @@ e02 }|..o| e04
 @endmindmap
 ----
 
+<<<
+
 === Glossary and Abbreviations
 [glossary]
 [horizontal]
@@ -538,7 +563,7 @@ other question to ask? :: and its different answer
 * [[[ref1]]] autor, titel, quelle(link/verlag), datum
 
 
-// table of content (has its own title)
+// table of content (has its own title and is on separate page)
 toc::[]
 
 === List of figures
@@ -553,6 +578,9 @@ list-of::listing[]
 === List of changes
 (doc-as-code -> include `git log --date=local --pretty=format:'%h, %an, %ad, "%s"' > doc-changelog.csv`)
 
+[cols="1,1,2,4"]
 ,===
-include::mediafiles/doc-changelog.csv[]
+include::mediafiles/changelog.csv[]
 ,===
+
+<<<

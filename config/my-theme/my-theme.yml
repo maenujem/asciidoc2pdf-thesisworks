@@ -1,21 +1,75 @@
 extends:
-  - base
-  # - default-with-fallback-font
+# see https://github.com/asciidoctor/asciidoctor-pdf/tree/main/data/themes
+  # - base
+  # - default
+  - default-with-font-fallbacks
+base:
+  line-height-length: 20
+  font-family: Noto Sans
+  # font-family: Noto Serif
+font:
+  catalog:
+    merge: true
+    Noto Sans:
+      normal: GEM_FONTS_DIR/notosans-regular-subset.ttf
+      bold: GEM_FONTS_DIR/notosans-bold-subset.ttf
+      italic: GEM_FONTS_DIR/notosans-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/notosans-bold_italic-subset.ttf
+header:
+  height: 15mm
+  # height: 0.75in
+  line-height: 1
+  border-width: 0.25
+  border-color: #AAAAAA
+  recto:
+    left:
+      content: "{doctitle}"
+    right:
+      content: "{section-or-chapter-title}"
+    #   content: '{document-title}'
+  verso:
+    left:
+      content: "{doctitle}"
+    #   content: '{document-title}'
+    right:
+      content: "{section-or-chapter-title}"
+footer:
+  height: 20mm
+  # height: 0.75in
+  line-height: 1
+  border-width: 0.25
+  border-color: #AAAAAA
+  recto:
+    left: 
+      content: "{author}"
+    center:
+      content: "{revnumber} - {revdate}"
+    right:
+      content: "Seite {page-number} von {page-count}"
+      # content: '{chapter-title} | *{page-number}*'
+  verso:
+    left: 
+      content: "{author}"
+      # content: '*{page-number}* | {chapter-title}'
+    center:
+      content: "{revnumber} - {revdate}"
+    right:
+      content: "Seite {page-number} von {page-count}"
 title-page:
   align: left
-  background-image: image:sunsetbackground.jpg[fit=fill]
+  background-image: image:binary-chem-background.png[fit=fill]
   logo:
-    image: image:coverlogo.png[position=top left,scaledwidth=25%,opts=align-to-page]
+    image: image:logo.png[position=top left,scaledwidth=25%,opts=align-to-page]
     top: 0px
+  title:
+    font-style: bold
+    font-color: #0000FF
 page:
   margin: [0.75in, 1in, 0.75in, 1in]
   # layout: portrait
   # size: letter
-base:
-  line-height-length: 20
-  # font-family: Times-Roman
 heading:
-  font-color: #FF8000
+  # font-color: #FF8000
   font-size: 12
   # font-style: bold
   line-height: 1.2
@@ -24,36 +78,26 @@ link:
   font-color: #009900
 image:
   align: center
+# admonition:
+#   icon:
+#     caution:
+#       # see https://fontawesome.com/icons?d=gallery&s=solid
+#       name: fas-star
+#       stroke_color: #111111
+#       size: 18  
 caption:
   align: center
-  font-color: #FF0000
+  # font-color: #FF0000
   font-size: 10
+# code:
+#   caption:
+#     end: bottom  
 table:
   head:
     background-color: #F0F0F0
 #   caption:
 #     end: bottom
-# code:
-#   caption:
-#     end: bottom
 role:
-  removed:
-    text-decoration: line-through
-header:
-  height: 0.75in
-  line-height: 1
-  recto:
-    right:
-      content: '{document-title}'
-  verso:
-    left:
-      content: '{document-title}'
-footer:
-  height: 0.75in
-  line-height: 1
-  recto:
-    right:
-      content: '{chapter-title} | *{page-number}*'
-  verso:
-    left:
-      content: '*{page-number}* | {chapter-title}'
+  important:
+    font-color: #FF0000
+

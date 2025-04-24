@@ -3,7 +3,7 @@ include::../config/my-config.adoc[]
 // doc header: automatically assigns doctitle / author <email> / revnumber, revdate
 = My Thesis about Something
 myFirstname myLastname <my@email.nix>; theirFirstname theirLastname <their@email.nix>
-v0.1, 22.04.2000
+v0.1, 24.04.2000
 
 // book preamble (on separate page)
 some preamble text
@@ -16,3 +16,13 @@ over multiple lines
 
 // content can placed in separate files and be included
 include::thesis-part1-examples.adoc[]
+
+// // part has same level as main title
+// = transfer thesis
+
+// include::thesis-part2-transfer.adoc[]
+
+// // part has same level as main title
+// = practical work IPA BiVo2021
+
+// include::thesis-part3-practical.adoc[]

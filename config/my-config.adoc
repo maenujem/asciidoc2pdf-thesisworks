@@ -1,0 +1,54 @@
+// -- info about document:
+// :doctitle: Facharbeit xy // or autoset by =Title
+:description: funny stuff about asccidoc
+:summary: asciidocin short
+:keywords: this, that, asciidoc
+// :docdatetime: 2025-04-10 12:00 // or autoset
+// :author: VornameX NachnameX // or autoset by authorline after =Title
+// :email: my@email.klo // or autoset by authorline <email> after =Title
+:url-xy: http://xy.com
+// :revnumber: 0.1 // or autoset by revline after =Title
+// :revdate: 01.01.2000 // or autoset by revline after =Title
+
+// specific settings:
+:doctype: book
+// :doctype: article
+:experimental:
+// title-page
+// :title-page: // add a title page if doctype is not book
+// :notitle: // remove title page if doctype is book
+// parts:
+:partnums:
+:part-signifier: Teil
+//chapters and toc
+:sectnums:
+:sectnumlevels: 4
+:!chapter-signifier:
+:toc:
+:toc-title: Mein Inhaltsverzeichnis
+:toc-placement: macro
+// :toc-placement: auto
+:toclevels: 4
+// figures
+:figure-caption: Abbildung
+:tof:
+:tof-placement: macro
+// tables
+:table-caption: Tabelle
+:tot:
+:tot-placement: macro
+// code
+:listing-caption: Code
+:tol:
+:tol-placement: macro
+:source-highlighter: rouge
+// footnotes
+:footnotes-title: Fussnoten dieses Kapitels
+// formula/math
+:stem:
+// fonts and stuff
+:icons: font
+:icon-set: far
+:imagesdir: mediafiles
+:pdf-theme: ./config/my-theme/my-theme.yml
+// :pdf-fontsdir: fonts
