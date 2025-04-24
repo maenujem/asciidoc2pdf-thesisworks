@@ -43,5 +43,6 @@ docker run --rm \
 - Asciidoctor PDF themes: https://github.com/asciidoctor/asciidoctor-pdf/tree/main/data/themes
 
 ## TODO
+- add example part 2
 - test building pdf pipeline (gitlab, github)
 - add example for slides using reveal.js

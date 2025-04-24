@@ -1,3 +1,4 @@
+include::../config/my-config.adoc[]
 
 IMPORTANT: Da für die Experten nur die Doku (plus Beobachtungen bei Besuch3) für die Bewertung anhand der Kriterien benutzt werden darf, gilt "Was nicht in der Doku ist, gibts nicht / wurde nicht gemacht"
 
