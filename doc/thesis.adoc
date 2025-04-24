@@ -1,0 +1,18 @@
+include::../config/my-config.adoc[]
+
+// doc header: automatically assigns doctitle / author <email> / revnumber, revdate
+= My Thesis about Something
+myFirstname myLastname <my@email.nix>; theirFirstname theirLastname <their@email.nix>
+v0.1, 22.04.2000
+
+// book preamble (on separate page)
+some preamble text
+over multiple lines
+
+// doc body (after first section-title)
+
+// part has same level as main title
+= asciidoc examples
+
+// content can placed in separate files and be included
+include::thesis-part1-examples.adoc[]

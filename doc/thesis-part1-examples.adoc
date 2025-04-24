@@ -1,0 +1,558 @@
+include::../config/my-config.adoc[]
+
+== Examples
+
+syntax/principles (attributes, macros, ...)\
+
+:attribute-name: attribute content
+attribute defined in head of document: `:attribute-name: attribute content` can be used to insert its content with {attribute-name}
+
+macro: `macroname:[]`
+
+// [%optionname]
+
+// [xy]
+
+// [.xy]
+
+....
+xxx
+....
+
+----
+yyyy
+----
+
+=== Textstructuring and -formatting
+a paragraph can continue over multiple
+lines and pagebreaks will not be respected, only an empty line will create a 
+ 
+new paragraph starting here.
+
+
+ if a paragraph starts with a blank character indent, then
+ it will be formatted as monospace, keeping the breaks and          <- whitespaces
+
+
+// title in toc only
+[%notitle]
+==== Deckblatt
+
+// special formatting
+[.text-center]
+// text with fixed linebreaks
+*{doctitle}* +
+Autor: {author} +
+Autors: {authors} +
+Fachhochschule Beispielstadt +
+Fachbereich XY +
+{empty} +
+Betreuer: Prof. Dr. Beispiel +
+Jahrgang: Q1, 2024 +
+Version: {revnumber} vom {revdate} / {docdatetime} +
+{url-xy} / {email}
+
+
+
+// title not in toc
+[discrete]
+==== Some empty chapter with explicit page break
+
+<<<
+
+text can be formatted as *bold* or _italic_ or `monospaced` or ~subscript~ or ^superscript^ or #hilighted# or using https://docs.asciidoctor.org/asciidoc/latest/text/text-span-built-in-roles[built-in roles] for [.underline]#underlined text# or [.line-through]#strikehrough text# or a custom role [.important]#for special text#
+
+also special-characters can be used like ☑ 𐄂 ↑ ↓ ↔ « »
+
+or explanation of keyboard-keystrokes kbd:[Ctrl+X] or menu-entries menu:View[Zoom > Size] to klick for certain actions
+
+or formulas/stem (see https://asciimath.org): stem:[sqrt(4)=2alpha] or matrices stem:[[[a,b\],[c,lambda\]\]((n),(k))] or sum stem:[lim_(n->oo) sum_(i=1)^n i^3=((n(n+1))/2)^2] or integrals and differentials stem:[int_0^1 f(x) dx -> f'(x) = dy/dx] or logic stem:[forall x exists y sub abs(x) => A wedge (B vee C)] or chemistry stem:[H_2O + CO_2 > COOH + OH^+]
+
+
+// lists
+unordered list:
+
+* Lorem ipsum dolor sit amet, 
+** consectetur adipiscing elit, 
+** sed do eiusmod tempor incididunt ut 
+* labore et dolore magna aliqua. 
+** Ut enim ad minim veniam
+
+numbered list:
+
+. Lorem ipsum dolor sit amet, 
+.. consectetur adipiscing elit, 
+.. sed do eiusmod tempor incididunt ut 
+. labore et dolore magna aliqua. 
+.. Ut enim ad minim veniam
+
+checklist:
+
+* [ ] not yet checked
+* [x] also checked
+* [ ] not checked
+* normal list item
+
+interactive checklist:
+[%interactive]
+* [ ] not yet checked
+* [x] also checked
+* [ ] not checked
+
+// quotes
+lets look at some quotes ..
+
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure. <<ref1>>" 
+-- Lorem Ipsum, Collection of Ipsums: Volume 11
+
+[quote, author meister, episode II]
+____
+*This is a block quote*
+
+With multiple lines containing empty lines - lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.
+____
+
+
+// admonitions
+and admonitions:
+
+NOTE: please note that ...
+
+IMPORTANT: this is important ...
+
+WARNING: you have neen warned!
+
+CAUTION: stop!
+
+[TIP]
+====
+*helpful multiline tip*
+
+Lorem ipsum +
+in a block
+====
+
+
+// links and references
+some linkexample with plain url http://someurl.nix/path or specific http://someurl.nix/path[text to be shown as link] in text 
+
+internal cross references are automatically generated for section/chapter-titles and can be used starting with an underline and words separated with underline like see explanation in <<_glossary_and_abbreviations>> or <<_glossary_and_abbreviations, same target but with different text>>
+
+
+
+// footnotes
+some footnoteexample in text.footnote:[text to be shown in footnotelist-page at end of chapter for footnote without id / used once] or reusable definition here{empty}footnote:someId1[text defined once for footnote with id used multiple times] and reuse here{empty}footnote:someId1[] without specifying footnote text
+
+:fn-note1: footnote:[same text to be shown in footnotelist-page at end of chapter for footnote without id / used once]
+:fn-note2: footnote:someId2[same text defined once for footnote with id used multiple times]
+
+same thing via externalilzation in an attribute (eg. in head of document) for each footnote with same footnoteexample in text.{fn-note1} or reusable definition here{fn-note2} and reuse here{fn-note2}
+
+
+// references
+some referenceexample in some text as mentioned in <<ref1>> 
+
+
+// code
+format a wide range of coding languages with the "rouge" extension (see https://github.com/rouge-ruby/rouge/blob/master/docs/Languages.md)
+
+.Java code
+[source,java]
+----
+public class Stack {
+
+    private int size;
+    private int element;
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int pop() {
+        if (size == 0) {
+            throw new EmptyStackPoppedException();
+        }
+        size--;
+        return element;
+    }
+}
+----
+
+.HTML code
+[source,html]
+----
+<html>
+<p><span id="replaceMe">Sample content</span> replaced by Javascript</p>
+<script>
+document.getElementById('replaceMe').innerHTML = 'New content!'
+</script>
+</html>
+----
+
+.GIT diff
+[source,diff]
+----
+diff --git a/asciidoc-pdf-example/arbeit-einbindung.adoc b/asciidoc-pdf-example/arbeit-einbindung.adoc
+index e69de29..16e3199 100644
+--- a/asciidoc-pdf-example/arbeit-einbindung.adoc
++++ b/asciidoc-pdf-example/arbeit-einbindung.adoc
+@@ -0,0 +1,3 @@
++Test Einbindung
++
++image::menueleiste-asciidoc-plugin.png[Menueleiste]
+----
+
+.XML code with linenumbers
+[source,xml,linenums]
+----
+/mein/pfad/zum/file.xml:
+
+<?xml version="1.0" encoding="utf-8" ?>
+<a>
+    <b codelist="http://standards.iso.org/iso/19139/">
+xzy
+    </b>
+</a>
+----
+
+.Ruby code, with explanation
+[source,ruby]
+----
+require 'sinatra' <1>
+
+get '/hi' do <2> <3>
+  "Hello World!"
+end
+----
+<1> Library import
+<2> URL mapping
+<3> Response block
+
+
+
+// add images
+
+By default, images are aligned centered, without floating text. _Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur._
+
+.Example PNG image a with relative size and alignment right
+image::curve-diagram.png[Example a,50%,float="right"]
+
+But size can be defined relative to document-width or absolute and alignment can be right or centered with floating text. _Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur._
+
+.Example SVG image b with fixed size and alignment left
+image::porphyrin-svg.svg[Example b (Wikipedia),200px, float="left"]
+
+_Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur._
+
+.Example JPG image c
+image::simple-ui-jpg.jpg[]
+
+
+or specific pages from a PDF:
+
+image::document-pdf.pdf[pages=5;2..3]
+
+
+// include external content
+not only `.adoc` can be included like this:
+
+include::mediafiles/include-adoc.adoc[]
+
+much more content can be included and formatting accordingly for example:
+
+.JSON include
+[source,json]
+----
+include::mediafiles/data-json.json[]
+----
+
+.java-script code include
+[source,js]
+----
+include::mediafiles/code-js.js[]
+----
+
+
+
+=== Tables
+
+.Table with one-line header and custom column-widths and some formatting
+[cols="5%,20%,,,"]
+|===
+|Header 1 |Header 2 |Header 3 |Header 4 |Header 5
+
+|Column 1, row 1
+|Column 2, row 1
+|Column 3, row 1
+|Column 4, row 1
+|Column 5, row 1
+
+|Column 1, row 2
+a|Column 2, row 2
+
+ including adoc things like lists
+
+* a
+* b
+
+|Column 3, row 2
+|Column 4, row 2
+|Column 5, row 2
+|===
+
+
+.Long table with multiline header (will be repeated after pagebreaks)
+[%header, cols=2]
+|===
+|Header 1 
+|Header 2 can be very long or so, just to explain is clearly but not shortly
+
+|Column 1, row 1
+|Column 2, row 1
+
+|Column 1, row 2
+|Column 2, row 2
+  
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+
+|Column 1, row 2
+|Column 2, row 2
+|===
+
+
+.Table from csv
+[format="csv",options="header",cols=",,s,,m"]
+|===
+ID,FName,LName,Address,Phone
+1,Nemo,Someone,London,+123
+2,X,Y,"A,B",45678
+|===
+
+=== Diagrams
+
+Text-based diagrams generated with PlantUML/Graphviz extension
+
+.Class diagramm with PlantUML
+[plantuml]
+----
+@startuml
+class Graphic 
+interface Shape <<Interface>> {
+  draw()
+}
+class Circle
+class Triangle
+class Square
+
+Graphic -> Shape
+Shape <|.. Circle
+Shape <|.. Triangle
+Shape <|.. Square
+@enduml
+----
+
+.UseCase diagram with PlantUML
+[plantuml]
+----
+@startuml
+actor "MA Fachbereich" as MA_FB
+node Browser
+node Frontend {
+  file "Document" as DOC
+}
+usecase CMS
+
+MA_FB         -do->  Browser:       ""nutzt Demo-Applikation""
+Browser       -ri->  Frontend:      ""ruft Frontend auf""
+
+CMS           -up->  Frontend:      ""CMS-Daten + Konfiguration""
+@enduml
+----
+
+.Sequence diagram with PlantUML
+[plantuml]
+----
+@startuml
+participant Frontend as FE
+participant Middleware as MW
+participant Datenbank as DB
+
+FE  ->  MW:       GET /kunden/4711
+activate   FE
+MW  ->  DB:       "SELECT * FROM KUNDEN where KD_NR = '4711'"
+activate   MW
+MW  <-- DB:       KD oder leeres ResultSet
+deactivate MW
+FE  <-- MW:       HTTP 200/400/500
+deactivate FE
+
+note left
+ Kunde als HTTP-Body
+ oder Error im HTTP-Header
+end note
+@enduml
+----
+
+.ERD with PlantUML
+[plantuml]
+----
+@startuml
+' hide the spot
+' hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "User" as e01 {
+  *user_id : number <<generated>>
+  --
+  *name : text
+  description : text
+}
+
+entity "Card" as e02 {
+  *card_id : number <<generated>>
+  sync_enabled: boolean
+  version: number
+  last_sync_version: number
+  --
+  *user_id : number <<FK>>
+  other_details : text
+}
+
+entity "CardsAccounts" as e04 {
+  *id : number <<generated>>
+  --
+  card_id : number <<FK>>
+  account_id : number <<FK>>
+  other_details : text
+}
+
+entity "Account" as e03 {
+  *account_id : number <<generated>>
+  --
+  user_id : number <<FK>>
+  other_details : text
+}
+
+e01 }|..|| e02
+e01 }o--|| e03
+
+e02 }|..o| e04
+@enduml
+----
+
+.Mindmap with PlantUML
+[plantuml]
+----
+@startmindmap
++ OS
+++ Linux
++++ Debian
+++++ Ubuntu
++++ BSD
+++ Solaris
+++ ChromeOS
+-- Windows 95
+-- Windows 98
+-- Windows NT
+--- Windows 8
+--- Windows 10
+@endmindmap
+----
+
+=== Glossary and Abbreviations
+[glossary]
+[horizontal]
+AsciiDoc :: Eine standardiserte textbasierte Auszeichnungssprache für Dokumentation.
+
+
+=== Q&A
+[qanda]
+question to ask? :: and its answer
+other question to ask? :: and its different answer
+
+
+=== References
+// use in text .... <<ref1>> ... where ref1 can be eg. meyer2015 to be well-readable
+[bibliography]
+* [[[ref1]]] autor, titel, quelle(link/verlag), datum
+
+
+// table of content (has its own title)
+toc::[]
+
+=== List of figures
+list-of::image[]
+
+=== List of tables
+list-of::table[]
+
+=== List of codesnippets
+list-of::listing[]
+
+=== List of changes
+(doc-as-code -> include `git log --date=local --pretty=format:'%h, %an, %ad, "%s"' > doc-changelog.csv`)
+
+,===
+include::mediafiles/doc-changelog.csv[]
+,===
