@@ -23,6 +23,6 @@ include::thesis-part1-examples.adoc[]
 // include::thesis-part2-transfer.adoc[]
 
 // // part has same level as main title
-// = practical work IPA BiVo2021
+= practical work IPA BiVo2021
 
-// include::thesis-part3-practical.adoc[]
+include::thesis-part3-practical.adoc[]

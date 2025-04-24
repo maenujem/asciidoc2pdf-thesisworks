@@ -95,6 +95,8 @@ caption:
 table:
   head:
     background-color: #F0F0F0
+  foot:
+    background-color: #F0F0F0
 #   caption:
 #     end: bottom
 role:

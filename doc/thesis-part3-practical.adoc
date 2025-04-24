@@ -1,0 +1,265 @@
+
+IMPORTANT: Da für die Experten nur die Doku (plus Beobachtungen bei Besuch3) für die Bewertung anhand der Kriterien benutzt werden darf, gilt "Was nicht in der Doku ist, gibts nicht / wurde nicht gemacht"
+
+WARNING: Alles nur mögliche Ideen, nicht abschliessend und ohne Gewähr ;)
+
+// Titelblatt
+[discrete]
+== {doctitle}
+
+Individuelle praktische Arbeit
+
+{author}
+
+[cols=2]
+|===
+| Firmenname 
+| xx
+
+| Abteilung
+| yy
+
+| Berufsschule
+| xy
+|===
+
+Beteiligte Personen
+
+[cols=2]
+|===
+| Validexperte
+| xx
+
+| Hauptexperte
+| xx
+
+| Nebenexperte
+| xx
+
+| Verantwortliche Fachkraft
+| xy
+
+| Berufsbildner
+| xy
+|===
+
+[cols=2]
+|===
+| Fachrichtung
+| xy
+
+| Projektvorgehensmodell
+| xx
+
+| Jahrgang und Kanton
+| IPA 2025, Kanton Bern
+
+| Ausgabedatum
+| xx
+|===
+
+
+// inhaltsverzeichnis
+toc::[]
+
+// teil 1, Formaler Teil (Projekt, der Weg)
+== Aufgabenstellung
+Titel der Arbeit und Thematik
+
+=== Ausgangslage
+(pkorg1:1)
+
+=== Detaillierte Aufgabenstellung
+(pkorg1:1)
+
+=== Mittel und Methoden
+(pkorg1:1)
+
+=== Vorkenntnisse
+(pkorg1:1)
+
+=== Vorarbeiten
+(aktualisiert)
+
+=== Neue Lerninhalte
+(pkorg1:1)
+
+=== Arbeiten in den letzten 6 Monaten
+(pkorg1:1)
+
+== Standards
+(Coding, Tools/Technologien,... -> Anhang)
+
+== IPA-Schutzbedarfsanalyse
+(Daten: Doku und Produkt/Systeme)
+
+== Organisation der IPA-Ergebnisse
+(K:A9, Doku und Code: Versionierung und Backup > Nachweis im Anhang, Arbeitsmethodiken wie TODO/Kriteriencheck/Risikochecks, KI, HW/SW:Versionen,..)
+
+== Projektmethode
+(K:A1, was warum für IPA wie angewendet)
+(Scrum: Refinement/Planning, Daily, Review, Retro, Product Backlog -> Sprint Backlog, UserStory -> Feature und Story mit Schätzung und Priorisierung, DoD, QS)
+
+== Projektaufbauorganisation
+(K:A11, Rollen in IPA und in Methode, Personen mit Kontaktangaben)
+
+[page-layout=landscape,page-size=A3]
+<<<
+
+== Zeitplan
+(K:A4)
+image::mediafiles/zeitplan.png[]
+
+[page-layout=portrait,page-size=A4]
+<<<
+
+== Arbeitsjournal
+(K:Doc7, A5, A7, A10)
+
+// -----
+=== Tag x, 01.01.2000
+*Tätigkeiten*
+
+[%header%footer,cols=5]
+|===
+| Tätigkeiten
+| Beteiligte Personen
+| Aufwand Plan
+| Aufwand Ist
+| Differenz
+
+| x
+| x
+| x
+| x
+| x
+
+| *Zeitaufwand total*
+| 
+| x
+| x
+| x
+|===
+
+*Tagesablauf*
+
+*Hilfestellungen und Entscheide*
+
+(Herausforderung und Lösung)
+
+*Reflexion*
+
+_Was lief gut?_
+
+_Was lief weniger gut?_
+
+_Erkenntnisse und Massnahmen_
+
+*Nächste Schritte*
+
+// -----
+// 10 mal kopieren
+
+== Persönliches Fazit
+(K:Doc8, Vergleich Soll/Ist, Reflexion und Fazit/TakeAway)
+
+// teil 2, Praktischer Teil (Produkt, das Ergebnis)
+== Kurzfassung der Arbeit
+(K:Doc6, A5)
+
+=== Ausgangssituation
+=== Umsetzung
+=== Ergebnis und Ausblick
+
+== .. the main Part ..
+(K:Doc1, Doc2, Doc5, A2, A3, A9, Doc4, A8, A12,..)
+(
+
+    * Inhalt passend zu Projektmethode und für aussenstehende Fachpersonen logisch/verständlich <<refA>>
+    * IST und SOLL, Abgrenzung/Rahmenbedingungen, generelle Vorgaben/Prozesse (Umfeld/Umgebung(Entwicklung, Runtime), Codeverwaltung/Deployment, Testing, ...)
+    * fachlich und technisch: Aufbau/Struktur und Ablauf/Verhalten (https://arc42.org/overview)
+    * UI > Logik(Domain) > Persistenz(API/DB), Rollen/Rechte
+    * Analyse > Entwurf > Umsetzung > Testing(umgebung/daten/user, testarten/ziele, ..., testfälle[vorbedingung, schritte, ergebnis], protokoll[wer, wann, ergebnis/beleg, massnahme])
+)
+
+
+== Verzeichnisse
+=== Glossar und Abkürzungen
+(K:Doc3)
+
+[glossary]
+// [horizontal]
+AsciiDoc:: Eine standardiserte textbasierte Auszeichnungssprache für Dokumentation.
+
+=== Quellenverzeichnis
+[bibliography]
+* [[[refA]]] autor, titel, quelle(link/verlag), datum
+
+=== Abbildungsverzeichnis
+list-of::image[]
+
+=== Tabellenverzeichnis
+list-of::table[]
+
+=== Codeverzeichnis
+list-of::listing[]
+
+=== Änderungsverzeichnis
+(doc-as-code -> include `git log --date=local --pretty=format:'%h, %an, %ad, "%s"' > doc-changelog.csv`)
+
+,===
+include::mediafiles/changelog.csv[]
+,===
+
+== Anhang
+=== Protokolle
+(Expertenbesuche, weitere)
+
+==== Protokoll xy
+[cols=2]
+|===
+| Datum und Zeit
+| 01.01.2000 10:00-10:30
+
+| Ort
+| Online
+
+| Protokollführer
+| xx
+
+| Teilnehmer
+| xx, yy
+|===
+
+Besprochene Punkte
+[%header,cols=2]
+|===
+| Thema
+| Bemerkungen / Ergebnis
+
+| x
+a| 
+- yyy
+- zzz
+
+|===
+
+Zu erledigende Aufgaben
+[%header,cols=3]
+|===
+| Aufgabe
+| Bemerkungen / Ergebnis
+| wer bis wann
+
+| x
+| yyy
+| z, 01.01.2000
+|===
+
+
+=== Nachweis Versionierung und Backup
+
+=== Standards (relevante Auszüge)
+
+=== Sourcecode
+(erstellte/angepasster Code: include git diff und/oder file -> .caption mit filename pro file)
