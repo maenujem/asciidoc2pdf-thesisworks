@@ -4,6 +4,8 @@ IMPORTANT: Da für die Experten nur die Doku (plus Beobachtungen bei Besuch3) f�
 
 WARNING: Alles nur mögliche Ideen, nicht abschliessend und ohne Gewähr ;)
 
+TIP: Diese Datei in die nötigen Teile splitten und sie im Hautpdokument (thesis.adoc) enstprechend verlinken.
+
 // Titelblatt
 [discrete]
 == {doctitle}
