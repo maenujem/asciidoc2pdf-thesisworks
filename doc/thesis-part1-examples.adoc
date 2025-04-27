@@ -69,7 +69,7 @@ Would you like to try again? y/n
 some special info to note
 ****
 
-text can be formatted as *bold* or _italic_ or `monospaced` or ~subscript~ or ^superscript^ or #hilighted# or using https://docs.asciidoctor.org/asciidoc/latest/text/text-span-built-in-roles[built-in roles] resp. https://docs.asciidoctor.org/pdf-converter/latest/roles/[built-in roles for pdf] for [.underline]#underlined text# or [.line-through]#strikehrough text# or a custom role [.important]#for special text# .
+text can be formatted as *bold* or _italic_ or `monospaced` or ~subscript~ or ^superscript^ or #hilighted# or using https://docs.asciidoctor.org/asciidoc/latest/text/text-span-built-in-roles[built-in roles] resp. https://docs.asciidoctor.org/pdf-converter/latest/roles/[built-in roles for pdf] for [.underline]#underlined text# or [.line-through]#strikehrough text# or a [green-background]#colored background# or a custom role [.important]#for special text# .
 
 also special-characters can be used like ☑ &#x2713; 𐄂 &#x292B; ↑ &#x2191; ↓ &#x2193; ↔ &#x2194; « &#xab; » &#xbb;
 
@@ -176,7 +176,7 @@ same thing via externalilzation in an attribute (eg. in head of document) for ea
 
 
 // references
-some referenceexample in some text as mentioned in <<ref1>> 
+some referenceexample in some text as mentioned in <<ref1>> or same with <<ref1,specific text>> 
 
 
 // code

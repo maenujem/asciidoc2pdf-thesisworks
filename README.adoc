@@ -1,7 +1,7 @@
 # asciidoc2pdf-thesisworks
 Use textbased asciidoc for creation of thesis-document PDF (doc-as-code).
 
-The example uses a custom theme `my-theme` and has a modularized setup: config/attributes and thre content-parts are separate files included in main `thesis.adoc`. A PDF is buildt using docker (customized image), without needing additional installation of e.g. ruby on the computer.
+The example uses a custom theme `my-theme` and has a modularized setup: config/attributes and three content-parts are separate files included in main `thesis.adoc`. A PDF is built using docker (customized image), without needing additional installation of e.g. ruby on the computer.
 
 The three content-parts show the following examples:
 
@@ -36,7 +36,7 @@ docker run --rm \
 - Documentation: https://docs.asciidoctor.org/asciidoc/latest/
 - Quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 - Attributes reference: https://docs.asciidoctor.org/asciidoc/latest/attributes/document-attributes-ref
-- https://docs.asciidoctor.org/pdf-converter/latest/theme/running-content/
+- RunningContent Category-Keys for Theme: https://docs.asciidoctor.org/pdf-converter/latest/theme/running-content/
 - rouge languages for source-formatting: https://github.com/rouge-ruby/rouge/blob/master/docs/Languages.md
 - Asciidoctor PDF: https://docs.asciidoctor.org/pdf-converter/latest/
 - Asciidoctor PDF examples: https://github.com/asciidoctor/asciidoctor-pdf/tree/main/examples
@@ -44,5 +44,6 @@ docker run --rm \
 
 ## TODO
 - add example part 2
-- test building pdf pipeline (gitlab, github)
+- make pdf-build-pipeline work (gitlab, github)
+- add maven-build (local or using docker)
 - add example for slides using reveal.js

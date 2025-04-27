@@ -1,6 +1,6 @@
 include::../config/my-config.adoc[]
 
-// doc header: automatically assigns doctitle / author <email> / revnumber, revdate
+// doc header: automatically assigns doctitle / author <email> / revnumber, revdate taken from first three lines below
 = My Thesis about Something
 myFirstname myLastname <my@email.nix>; theirFirstname theirLastname <their@email.nix>
 v0.1, 24.04.2000
@@ -22,7 +22,7 @@ include::thesis-part1-examples.adoc[]
 
 // include::thesis-part2-transfer.adoc[]
 
-// // part has same level as main title
+// part has same level as main title
 = practical work IPA BiVo2021
 
 include::thesis-part3-practical.adoc[]
