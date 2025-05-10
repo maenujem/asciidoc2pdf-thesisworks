@@ -7,7 +7,7 @@ The three content-parts show the following examples:
 
 - asciidoc syntax examples
 - structure for thesis (transfer work)
-- structure for pratical work (IPA, according to "Dokumentenvorgabe 2025, Kt Bern" and "Kriterienkatalog, BiVo 2021")
+- structure for pratical work ("IPA Informatiker:in EFZ", according to "Dokumentenvorgabe 2025, Kt Bern" and "Kriterienkatalog, BiVo 2021")
 
 ## Editors
 - vscode extension: https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode 
@@ -47,3 +47,4 @@ docker run --rm \
 - make pdf-build-pipeline work (gitlab, github)
 - add maven-build (local or using docker)
 - add example for slides using reveal.js
+- add example for HTML document/page
